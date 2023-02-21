@@ -3,6 +3,8 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 
+const healthRouter = require("./routes/healthRouter");
+
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -13,6 +15,7 @@ function errorHandler(err, req, res) {
     res.status(500).send('Server error');
 }
 
+app.use('/api/v1/health', healthRouter);
 app.use(errorHandler);
 
 (async () => {
