@@ -3,7 +3,7 @@
     "username": "postgres",
     "password": "admin",
     "database": "test-task",
-    "host": "localhost",
+    "host": "db",
     "dialect": "postgres"
   }
 }

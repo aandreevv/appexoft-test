@@ -12,6 +12,9 @@ services:
     restart: always
     environment:
       DB_HOST: db
+    volumes:
+      - .:/app
+      - /app/node_modules
 
   db:
     container_name: db

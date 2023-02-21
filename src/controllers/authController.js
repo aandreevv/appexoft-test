@@ -1,6 +1,6 @@
-const argon2 = require('argon2');
 const {User} = require('../models');
 const crypto = require("crypto");
+const argon2 = require('argon2');
 
 const signUp = async (req, res) => {
     try {
