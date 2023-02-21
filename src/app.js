@@ -16,12 +16,11 @@ function errorHandler(err, req, res) {
 app.use(errorHandler);
 
 (async () => {
-        try {
-            app.listen(port, () => {
-                console.log(`Server has successfully started on port ${port}`);
-            });
-        } catch (err) {
-            console.error(`Error on server startup: ${err.message}`);
-        }
+    try {
+        app.listen(port, () => {
+            console.log(`Server has successfully started on port ${port}`);
+        });
+    } catch (err) {
+        console.error(`Error on server startup: ${err.message}`);
     }
-)();
+})();
