@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const sequelize = require('./utils/sequelize');
 
 const healthRouter = require("./routes/healthRouter");
 
@@ -20,8 +21,11 @@ app.use(errorHandler);
 
 (async () => {
     try {
-        app.listen(port, () => {
+        await sequelize.authenticate();
+        console.log('Connection to database established successfully');
+        app.listen(port, async () => {
             console.log(`Server has successfully started on port ${port}`);
+            await sequelize.sync();
         });
     } catch (err) {
         console.error(`Error on server startup: ${err.message}`);
