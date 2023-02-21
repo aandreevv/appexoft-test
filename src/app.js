@@ -1,12 +1,17 @@
-require("dotenv").config();
+require('dotenv').config();
 
-const express = require("express");
-const bodyParser = require("body-parser");
+const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
+
+function errorHandler(err, req, res) {
+    console.error(err.stack);
+    res.status(500).send('Server error');
+}
 
 app.use(errorHandler);
 
@@ -20,8 +25,3 @@ app.use(errorHandler);
         }
     }
 )();
-
-function errorHandler(err, req, res, next) {
-    console.error(err.stack);
-    res.status(500).send('Server error');
-}
