@@ -11,9 +11,6 @@ services:
       - db
     restart: always
     environment:
-      DB_USER: postgres
-      DB_NAME: test-task
-      DB_PASSWORD: admin
       DB_HOST: db
 
   db:
