@@ -3,8 +3,8 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const sequelize = require('./utils/sequelize');
-const {User} = require('./models');
-const healthRouter = require("./routes/healthRouter");
+const { User } = require('./models');
+const healthRouter = require('./routes/healthRouter');
 const authRouter = require('./routes/authRouter');
 
 const app = express();
@@ -22,7 +22,7 @@ app.use(errorHandler);
 
 (async () => {
     try {
-        await User.sync({force: true});
+        await User.sync({ force: true });
         await sequelize.authenticate();
         console.log('Connection to database established successfully');
         app.listen(port, async () => {
